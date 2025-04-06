@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:: THE LIGHTING CONCEPTS ::</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	
+    <title>TLC</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+<header>
+    <div class="sidebar-toggler" id="sidebarToggler" style="color: white">&#9776;</div>
+    <div class="logo">
+        <img src="img/banners/tlc_logo.png" class="logo-image" style="height: 80px ; width: 200px;" />
+        <div class="logo-text">THE LIGHTING CONCEPTS</div>
+    </div>
+    <div class="social-media-iconss">
+        <a href="https://wa.me/1234567890?text=Hello%20I%20need%20help" target="_blank" class="social-icon whatsapp-icon">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <div class="dark-mode-toggler" id="darkModeToggler">🌙</div>
+</header>
+
+
+    <!-- Sidebar Section -->
+    <div class="sidebar" id="sidebar">
+        <div class="close-sidebar" id="closeSidebar">&#10005;</div> 
+        <div class="sidebar-content">
+            <ul class="links" style="margin-left: 40px;">
+               
+	<li onclick="window.location.href='index.html'">Home</li>
+				 <li onclick="window.location.href='why.html'">Why we?</li>
+
+    <li onclick="window.location.href='who.html'">Who are we?</li>
+   
+    <li onclick="window.location.href='what.html'">What we do?</li>
+				 <li class="menu-item" id="menuItem1">
+                    <button class="submenu-toggle">
+                       Portfolio
+                        <span class="arrow" id="arrow1">&#8595;</span>
+                    </button>
+                    <ul class="submenu" id="submenu1">
+						<li onclick="window.location.href='facade.html'">Facade lighting</li>
+						<li onclick="window.location.href='Commercial.html'">Commercial lighting</li>
+                        <li onclick="window.location.href='Architectural.html'">Architectural lighting</li>
+                        <li onclick="window.location.href='disco.html'">Disco <span style="color: #e0b976;">+</span> Lounge <span style="color: #e0b976;">+</span> Bar lighting</li>
+                    </ul>
+                </li>
+				<li onclick="window.location.href='testimonial.html'">Testimonial</li>
+				
+				
+    				<li onclick="window.location.href='contactus.html'">Contact us</li>
+	 
+</ul>
+
+        </div>
+        <div class="social-media-icons">
+
+            <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
+    <div class="image-container" id="imageContainer">
+        <img src="./img/banners/1.png" alt="Image 1" class="image" id="image1" data-text="" />
+        <img src="./img/banners/2 (3).jpg" alt="Image 2" class="image" id="image2" data-text="INNOVATIVE LIGHTING DESIGN" />
+        <img src="./img/banners/3.jpg" alt="Image 3" class="image" id="image3" data-text="MODERN AMBIENCE CREATION" />
+        <img src="./img/banners/4.jpg" alt="Image 4" class="image" id="image4" data-text="EXTRAORDINARY LIGHTING EFFECTS" />
+        <img src="./img/banners/5.jpg" alt="Image 5" class="image" id="image5" data-text="HOSPITALITY" />
+		 <img src="./img/banners/6.jpg" alt="Image 6" class="image" id="image6" data-text="THE 2025 COLLECTION" />
+		<img src="./img/banners/9.jpg" alt="Image 9" class="image" id="image9" data-text="FACADE LIGHTINGS" />
+
+        <h1 id="imageText">THE 2025 COLLECTION</h1> <!-- Floating text will change dynamically -->
+    </div>
+
+    <div class="image-counter" id="imageCounter">1/9</div>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll('.image');
+            const totalImages = images.length;
+            let currentIndex = 0;
+
+            const imageText = document.getElementById('imageText'); // Reference to the text
+            const imageContainer = document.getElementById('imageContainer');
+            images[currentIndex].classList.add('active');
+            imageText.textContent = images[currentIndex].getAttribute('data-text'); // Set initial text
+
+            const imageCounter = document.getElementById('imageCounter');
+            imageCounter.textContent = `${currentIndex + 1}/${totalImages}`;
+
+            let isScrolling = false;
+
+            window.addEventListener('wheel', (e) => {
+                if (isScrolling) return;
+                isScrolling = true;
+
+                if (e.deltaY > 0) {
+                    currentIndex = (currentIndex + 1) % totalImages;
+                } else {
+                    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                }
+
+                imageCounter.textContent = `${currentIndex + 1}/${totalImages}`;
+                changeImage();
+
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 1000);
+            });
+
+            let touchStartY = 0;
+            let touchEndY = 0;
+
+            window.addEventListener('touchstart', (e) => {
+                touchStartY = e.changedTouches[0].screenY;
+            });
+
+            window.addEventListener('touchend', (e) => {
+                touchEndY = e.changedTouches[0].screenY;
+
+                if (touchEndY < touchStartY) {
+                    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                } else if (touchEndY > touchStartY) {
+                    currentIndex = (currentIndex + 1) % totalImages;
+                }
+
+                imageCounter.textContent = `${currentIndex + 1}/${totalImages}`;
+                changeImage();
+            });
+
+            function changeImage() {
+                images.forEach((img, index) => {
+                    img.classList.remove('active');
+                    img.style.transform = '';
+                });
+
+                images[currentIndex].classList.add('active');
+                images[currentIndex].style.transform = 'translateY(0)';
+
+                const previousIndex = (currentIndex === 0 ? totalImages : currentIndex) - 1;
+                if (previousIndex >= 0) {
+                    images[previousIndex].style.transform = currentIndex < previousIndex ? 'translateY(100%)' : 'translateY(-100%)';
+                }
+
+                // Update the floating text with the data-text of the active image
+                imageText.textContent = images[currentIndex].getAttribute('data-text');
+            }
+
+            // Sidebar interaction
+            const sidebarToggler = document.getElementById("sidebarToggler");
+            const sidebar = document.getElementById("sidebar");
+            const closeSidebar = document.getElementById("closeSidebar");
+
+            // Toggles the sidebar and applies blur effect to background
+            sidebarToggler.addEventListener("click", () => {
+                const isSidebarOpen = sidebar.style.left === "0%";
+
+                if (isSidebarOpen) {
+                    gsap.to(sidebar, { left: "-100%", duration: 0.3 });
+                    gsap.to(imageContainer, { filter: "none", duration: 0.3 });
+                } else {
+                    gsap.to(sidebar, { left: "0%", duration: 0.3 });
+                    gsap.to(imageContainer, { filter: "blur(5px)", duration: 0.3 }); // Apply blur to background
+                }
+            });
+
+            closeSidebar.addEventListener("click", () => {
+                gsap.to(sidebar, { left: "-100%", duration: 0.3 });
+                gsap.to(imageContainer, { filter: "none", duration: 0.3 });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

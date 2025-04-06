@@ -1,0 +1,506 @@
+
+<!-- ===== BOX ICONS ===== -->
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+<style>
+	/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root{
+  --header-height: 3rem;
+
+  /*===== Colors =====*/
+  --first-color: #3E0E12;
+  --first-color-dark: #2F0A0D;
+  --text-color: #524748;
+  --first-color-light: #7B6F71;
+  --first-color-lighten: #FBF9F9;
+
+  /*===== Font and typography =====*/
+  --body-font: 'Poppins', sans-serif;
+  --biggest-font-size: 2.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*===== Font weight =====*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*===== Margins =====*/
+  --mb-1: .5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+
+  /*===== z index =====*/
+  --z-normal: 1;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+  
+@media screen and (min-width: 768px){
+  :root{
+    --biggest-font-size: 4.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+/*===== BASE =====*/
+*,::before,::after{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  background-color: #1a1a1a;
+  color: white;
+  line-height: 1.6;
+}
+
+h1,h2,h3,ul,p{
+  margin: 0;
+}
+
+h2,h3{
+  font-weight: var(--font-semi-bold);
+}
+
+ul{
+  padding: 0;
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+/*===== CLASS CSS =====*/
+.section {
+  padding: 4rem 0 2rem;
+}
+
+.section-title, .section-subtitle {
+  text-align: center;
+}
+
+.section-title {
+  font-size: var(--h1-font-size);
+  color: white;
+  margin-bottom: var(--mb-3);
+}
+
+.section-subtitle {
+  display: block;
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-semi-bold);
+}
+
+/*===== LAYOUT =====*/
+.bd-container {
+  max-width: 1024px;
+  width: calc(100% - 2rem);
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+}
+
+.bd-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/*===== BUTTON =====*/
+.button {
+  display: inline-block;
+  background-color: #bba24f;
+  color: white;
+  padding: .75rem 1rem;
+  border-radius: .25rem;
+  transition: .3s;
+}
+
+.button:hover {
+  background-color: #bba24f;
+}
+
+/*===== CONTACT ME =====*/
+.contact__container {
+  row-gap: 2.5rem;
+}
+
+.contact__content {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.contact__box {
+  background-color: #262626;
+  border-radius: .5rem;
+  padding: 1.5rem;
+  text-align: center;
+	border: 1px solid white;
+}
+
+.contact__icon, .contact__title {
+  color: white;
+}
+
+.contact__icon {
+  font-size: 2rem;
+}
+
+.contact__title {
+  font-size: var(--h3-font-size);
+  margin: var(--mb-1) 0;
+}
+
+.contact__social {
+  color: var(--first-color-light);
+  font-size: 1.25rem;
+  margin: 0 var(--mb-1);
+}
+
+.contact__box:hover {
+  box-shadow: 0 6px 8px rgba(174, 190, 205, .4);
+}
+
+.contact__inputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1rem;
+}
+
+.contact__input, .contact__button {
+  outline: none;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+.contact__input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--first-color-light);
+  color: var(--first-color);
+  border-radius: .5rem;
+  margin-bottom: var(--mb-1);
+}
+
+.contact::placeholder {
+  color: var(--first-color-light);
+  font-family: var(--body-font);
+  font-weight: var(--font-semi-bold);
+}
+
+.contact__button {
+  cursor: pointer;
+  border: none;
+}
+
+/*===== MEDIA QUERIES =====*/
+@media screen and (min-width: 576px) {
+  .contact__form {
+    width: 450px;
+    justify-self: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .bd-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	
+    <title>TLC</title>
+    <link rel="stylesheet" href="css/contactus.css">
+    <style>
+		
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+<header>
+    <div class="sidebar-toggler" id="sidebarToggler" style="color: white">&#9776;</div>
+    <div class="logo">
+        <img src="img/banners/tlc_logo.png" class="logo-image" style="height: 80px ; width: 200px;" />
+        <div class="logo-text">THE LIGHTING CONCEPTS</div>
+    </div>
+    <div class="social-media-iconss">
+        <a href="https://wa.me/1234567890?text=Hello%20I%20need%20help" target="_blank" class="social-icon whatsapp-icon">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <div class="dark-mode-toggler" id="darkModeToggler">🌙</div>
+</header>
+
+
+    <!-- Sidebar Section -->
+    <div class="sidebar" id="sidebar">
+        <div class="close-sidebar" id="closeSidebar">&#10005;</div> 
+        <div class="sidebar-content">
+            <ul class="links" style="margin-left: 40px;">
+               
+	<li onclick="window.location.href='index.html'">Home</li>
+				 <li onclick="window.location.href='why.html'">Why we?</li>
+
+    <li onclick="window.location.href='who.html'">Who are we?</li>
+   
+    <li onclick="window.location.href='what.html'">What we do?</li>
+				 <li class="menu-item" id="menuItem1">
+                    <button class="submenu-toggle">
+                       Portfolio
+                        <span class="arrow" id="arrow1">&#8595;</span>
+                    </button>
+                    <ul class="submenu" id="submenu1">
+						<li onclick="window.location.href='facade.html'">Facade lighting</li>
+						<li onclick="window.location.href='Commercial.html'">Commercial lighting</li>
+                        <li onclick="window.location.href='Architectural.html'">Architectural lighting</li>
+                        <li onclick="window.location.href='disco.html'">Disco <span style="color: #e0b976;">+</span> Lounge <span style="color: #e0b976;">+</span> Bar lighting</li>
+                    </ul>
+                </li>
+				<li onclick="window.location.href='testimonial.html'">Testimonial</li>
+				
+				
+    				<li onclick="window.location.href='contactus.html'">Contact us</li>
+	 
+</ul>
+
+        </div>
+        <div class="social-media-icons">
+
+            <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const sidebarToggler = document.getElementById("sidebarToggler");
+    const sidebar = document.getElementById("sidebar");
+    const closeSidebar = document.getElementById("closeSidebar");
+    const mainContent = document.getElementById("mainContent");
+    const darkModeToggler = document.getElementById("darkModeToggler");
+    const header = document.querySelector("header");
+    const logoText = document.querySelector(".logo-text"); 
+	const logoImage = document.querySelector(".logo-image");
+	
+
+    let darkMode = false;
+    let lastScrollTop = 0; // Variable to store the last scroll position
+    document.body.classList.remove("dark-mode");
+    darkModeToggler.innerHTML = "🌙";
+
+    sidebarToggler.addEventListener("click", () => {
+        const isOpen = sidebar.style.left === "0%";
+
+        if (isOpen) {
+            gsap.to(sidebar, { left: "-100%", duration: 0.3 });
+            gsap.to(mainContent, { filter: "none", duration: 0.3 });
+            gsap.to(header, { top: "0", duration: 0.3 });
+            sidebarToggler.innerHTML = "&#9776;";
+            closeSidebar.style.display = "none";
+        } else {
+            gsap.to(sidebar, { left: "0%", duration: 0.3 });
+            gsap.to(mainContent, { filter: "blur(5px)", duration: 0.8 });
+            gsap.to(header, { top: "0", duration: 0.3 });
+            sidebarToggler.style.display = "none";
+            closeSidebar.style.display = "block";
+        }
+    });
+
+    closeSidebar.addEventListener("click", () => {
+        gsap.to(sidebar, { left: "-100%", duration: 0.3 });
+        gsap.to(mainContent, { filter: "none", duration: 0.3 });
+        gsap.to(header, { top: "0", duration: 0.3 });
+        sidebarToggler.style.display = "block";
+        closeSidebar.style.display = "none";
+    });
+
+    darkModeToggler.addEventListener("click", () => {
+        darkMode = !darkMode;
+        document.body.classList.toggle("dark-mode", darkMode);
+        darkModeToggler.innerHTML = darkMode ? "🌞" : "🌙";
+    });
+
+    const menuItem1 = document.getElementById("menuItem1");
+    const submenu1 = document.getElementById("submenu1");
+    const arrow1 = document.getElementById("arrow1");
+
+    menuItem1.querySelector('.submenu-toggle').addEventListener("click", () => {
+        const isOpen = submenu1.style.display === "block";
+        if (isOpen) {
+            submenu1.style.display = "none";
+            arrow1.innerHTML = "&#8593;";
+        } else {
+            submenu1.style.display = "block";
+            arrow1.innerHTML = "&#8595;";
+        }
+    });
+
+    // Scroll detection to hide/show logo-text
+    window.addEventListener("scroll", function () {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScrollTop > lastScrollTop) {
+            // Scrolling down
+            logoText.style.transform = "translateY(-400%)";
+			logoImage.style.transform = "translateY(-400%)";// Hide the logo text
+        } else {
+            // Scrolling up
+            logoText.style.transform = "translateY(0)";
+			logoImage.style.transform = "translateY(0)";
+        }
+
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Prevent negative scroll value
+    });
+});
+
+    </script>
+</body>
+</html>
+
+<!--===== CONTACT ME =====-->
+<section class="contact section bd-container" id="contact">
+  <h2 class="section-title">Get in touch</h2>
+
+  <div class="contact__container bd-grid">
+    <div class="contact__content bd-grid">
+      <div class="contact__box">
+        <i class="bx bx-home contact__icon"></i>
+        <h3 class="contact__title">Location</h3>
+        <span class="contact__description">#123 u</span>
+      </div>
+
+      <div class="contact__box">
+        <i class="bx bx-phone contact__icon"></i>
+        <h3 class="contact__title">Phone</h3>
+        <span class="contact__description">999-888-777</span>
+      </div>
+
+      <div class="contact__box">
+        <i class="bx bx-envelope contact__icon"></i>
+        <h3 class="contact__title">Gmail</h3>
+        <span class="contact__description">@email.com</span>
+      </div>
+
+      <div class="contact__box">
+        <i class="bx bx-chat contact__icon"></i>
+        <h3 class="contact__title">Social Media</h3>
+        <div>
+          <a href="#" class="contact__social"><i class="bx bxl-whatsapp-square"></i></a>
+          <a href="#" class="contact__social"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="contact__social"><i class="bx bxl-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+
+<form action="" class="contact__form" id="contactForm">
+  <div class="contact__inputs">
+    <input type="text" name="name" placeholder="Name" class="contact__input" required>
+    <input type="email" name="email" placeholder="Email" class="contact__input" required>
+  </div>
+
+  <div class="contact__inputs">
+    <input type="tel" name="phone" placeholder="Number" class="contact__input" style="width: 207%; padding: 1rem; border: 2px solid var(--first-color-light); color: var(--first-color); border-radius: .5rem; margin-bottom: var(--mb-1);" pattern="^[0-9]{10}$" required title="Please enter a 10-digit phone number">
+  </div>
+
+  <textarea name="message" id="" cols="0" rows="7" placeholder="Message" class="contact__input" required></textarea>
+
+  <input type="submit" value="Send Message" class="button contact__button">
+</form>
+  </div>
+</section>
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    const phoneInput = document.querySelector('input[name="phone"]');
+    const phoneValue = phoneInput.value.trim();
+    if (!/^\d{10}$/.test(phoneValue)) {
+      alert("Please enter a valid 10-digit phone number.");
+      event.preventDefault(); 
+    }
+  });
+</script>
+
+<footer>
+    <div class="container">
+        <div class="linkss">
+            <div class="div"> &copy;2025 The Lighting Concepts
+               
+            </div>
+            <div class="div">Quick Links
+                <ul>
+					
+					<li onclick="window.location.href='testimonial.php'">Testimonials</li>
+                    <li onclick="window.location.href='why.php'">Why we?</li>
+                    <li onclick="window.location.href='who.php'">Who Are we?</li>
+                    <li onclick="window.location.href='what.php'">What we do?</li>
+                </ul>
+            </div>
+            
+ 			<div class="div">Follow us on
+                <ul>
+					<li onclick="window.location.href='https://x.com/i/flow/login?lang=en'">X</li>
+                    <li onclick="window.location.href='https://www.instagram.com/'">Instagram </li>
+					<li onclick="window.location.href='https://www.facebook.com/login/'">Facebook</li>
+                    
+                   
+                </ul>
+            </div>
+            <div class="div">Contact us
+                <ul>
+                    <li>Email: </li>
+                    <li>Phone: </li>
+					<li>WhatsApp: </li>
+                   
+                </ul>
+            </div>
+			<div class="div">Mails
+                <ul>
+                    <li>Saket@thelightingconcepts.com </li>
+                    <li>Chirag@thelightingconcepts.com</li>
+					<li>Mohit@thelightingconcepts.com</li>
+                 
+                </ul>
+            </div>
+           
+        </div>
+
+        <hr class="hr-1">
+        <div class="footer_last">
+            <h4>Designed and Developed By Soft Solution</h4>
+            <h4>Legal Advice</h4>
+            <h4>Privacy Policy</h4>
+            <h4>Cookie Policy</h4>
+        </div>
+    </div>
+</footer>

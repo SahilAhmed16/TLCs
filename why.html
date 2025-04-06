@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHY WE?</title>
+</head>
+<body>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	
+    <title>TLC</title>
+    <link rel="stylesheet" href="css/why.css">
+    <style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="sidebar-toggler" id="sidebarToggler" style="color: white">&#9776;</div>
+        <div class="logo">
+            <img src="img/banners/tlc_logo.png" class="logo-image" style="height: 80px ; width: 200px;" />
+            <div class="logo-text">THE LIGHTING CONCEPTS</div>
+        </div>
+        <div class="social-media-iconss">
+            <a href="https://wa.me/1234567890?text=Hello%20I%20need%20help" target="_blank" class="social-icon whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <div class="dark-mode-toggler" id="darkModeToggler">🌙</div>
+    </header>
+
+
+    <!-- Sidebar Section -->
+    <div class="sidebar" id="sidebar">
+        <div class="close-sidebar" id="closeSidebar">&#10005;</div> 
+        <div class="sidebar-content">
+            <ul class="links" style="margin-left: 40px;">
+               
+	<li onclick="window.location.href='index.html'">Home</li>
+				 <li onclick="window.location.href='why.html'">Why we?</li>
+
+    <li onclick="window.location.href='who.html'">Who are we?</li>
+   
+    <li onclick="window.location.href='what.html'">What we do?</li>
+				 <li class="menu-item" id="menuItem1">
+                    <button class="submenu-toggle">
+                       Portfolio
+                        <span class="arrow" id="arrow1">&#8595;</span>
+                    </button>
+                    <ul class="submenu" id="submenu1">
+						<li onclick="window.location.href='facade.html'">Facade lighting</li>
+						<li onclick="window.location.href='Commercial.html'">Commercial lighting</li>
+                        <li onclick="window.location.href='Architectural.html'">Architectural lighting</li>
+                        <li onclick="window.location.href='disco.html'">Disco <span style="color: #e0b976;">+</span> Lounge <span style="color: #e0b976;">+</span> Bar lighting</li>
+                    </ul>
+                </li>
+				<li onclick="window.location.href='testimonial.html'">Testimonial</li>
+				
+				
+    				<li onclick="window.location.href='contactus.html'">Contact us</li>
+	 
+</ul>
+
+        </div>
+        <div class="social-media-icons">
+
+            <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const sidebarToggler = document.getElementById("sidebarToggler");
+    const sidebar = document.getElementById("sidebar");
+    const closeSidebar = document.getElementById("closeSidebar");
+    const mainContent = document.getElementById("mainContent");
+    const darkModeToggler = document.getElementById("darkModeToggler");
+    const header = document.querySelector("header");
+    const logoText = document.querySelector(".logo-text"); 
+	const logoImage = document.querySelector(".logo-image");
+	
+
+    let darkMode = false;
+    let lastScrollTop = 0; // Variable to store the last scroll position
+    document.body.classList.remove("dark-mode");
+    darkModeToggler.innerHTML = "🌙";
+
+    sidebarToggler.addEventListener("click", () => {
+        const isOpen = sidebar.style.left === "0%";
+
+        if (isOpen) {
+            gsap.to(sidebar, { left: "-100%", duration: 0.3 });
+            gsap.to(mainContent, { filter: "none", duration: 0.3 });
+            gsap.to(header, { top: "0", duration: 0.3 });
+            sidebarToggler.innerHTML = "&#9776;";
+            closeSidebar.style.display = "none";
+        } else {
+            gsap.to(sidebar, { left: "0%", duration: 0.3 });
+            gsap.to(mainContent, { filter: "blur(5px)", duration: 0.8 });
+            gsap.to(header, { top: "0", duration: 0.3 });
+            sidebarToggler.style.display = "none";
+            closeSidebar.style.display = "block";
+        }
+    });
+
+    closeSidebar.addEventListener("click", () => {
+        gsap.to(sidebar, { left: "-100%", duration: 0.3 });
+        gsap.to(mainContent, { filter: "none", duration: 0.3 });
+        gsap.to(header, { top: "0", duration: 0.3 });
+        sidebarToggler.style.display = "block";
+        closeSidebar.style.display = "none";
+    });
+
+    darkModeToggler.addEventListener("click", () => {
+        darkMode = !darkMode;
+        document.body.classList.toggle("dark-mode", darkMode);
+        darkModeToggler.innerHTML = darkMode ? "🌞" : "🌙";
+    });
+
+    const menuItem1 = document.getElementById("menuItem1");
+    const submenu1 = document.getElementById("submenu1");
+    const arrow1 = document.getElementById("arrow1");
+
+    menuItem1.querySelector('.submenu-toggle').addEventListener("click", () => {
+        const isOpen = submenu1.style.display === "block";
+        if (isOpen) {
+            submenu1.style.display = "none";
+            arrow1.innerHTML = "&#8593;";
+        } else {
+            submenu1.style.display = "block";
+            arrow1.innerHTML = "&#8595;";
+        }
+    });
+
+    // Scroll detection to hide/show logo-text
+    window.addEventListener("scroll", function () {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScrollTop > lastScrollTop) {
+            // Scrolling down
+            logoText.style.transform = "translateY(-400%)";
+			logoImage.style.transform = "translateY(-400%)";// Hide the logo text
+        } else {
+            // Scrolling up
+            logoText.style.transform = "translateY(0)";
+			logoImage.style.transform = "translateY(0)";
+        }
+
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Prevent negative scroll value
+    });
+});
+
+    </script>
+</body>
+</html>
+
+    <div class="content">
+        <h1>THE LIGHTING CONCEPTS</h1>
+        <hr class="hr-1">
+        <p>
+
+Incorporated in 2025 with the utmost fervor to work in the fields of architecture and art, where lighting is the ideal palette to combine the two.<br/>
+
+Since the days when the name "LED" lighting was practically unknown, we have been continuously studying and creating LED-based lighting solutions to meet highly specific illumination needs.<br/>
+
+Over the years, we have developed a comprehensive understanding of the "right" lighting for any purpose, from working with extremely technical lighting to retrofitting LED goods in the hospitality industry and matching aesthetics.<br/>
+</p>
+    </div>
+
+    <img src="./img/banners/bg.jpg" alt="Repeatable Image" class="repeat-image">
+
+    <div class="evolution-container">
+        <h2 class="evolution-title">Evolution of Lighting Concept</h2>
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                <div class="slider">
+
+                    <div class="slide-group">
+                        <div class="card">
+                            <h3>2025</h3>
+                            <p>Innovative designs incorporate lighting as an integral part of architecture.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="nav-btn prev-btn">&#10094;</button>
+            <button class="nav-btn next-btn">&#10095;</button>
+            <div class="slider-dots"></div>
+        </div>
+    </div>
+
+    <div class="team-container">
+        <h2>Our Team</h2>
+        	<div class="team-member">
+            <img src="./img/sa1.jpg" alt="chirag">
+            <div class="designation">SAHIL AHMED</div>
+
+			
+       	 </div>
+	<div class="team-member">
+					 <img src="./img/sa4.jpeg" alt="mohit">
+            <div class="designation">THE</div>
+	</div>
+		<div class="team-member">
+			<img src="./img/mypic.jpg" alt="mohit">
+            <div class="designation">ONLY BOSS</div>
+	</div>
+		
+    </div>
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+    .container {
+        background-color: #1a1a1a;
+        color: white;
+        padding: 40px;
+         font-family: "Roboto", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        border-radius: 10px;
+    }
+
+    .linkss {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap; 
+        padding: 30px;
+        justify-content: space-between; 
+    }
+
+    .div {
+        flex: 1 1 200px; 
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+		margin-bottom: 20px;
+    }
+	.div ul li{
+	margin-top: 15px;
+	}
+		.div ul li:hover{
+			color: crimson;
+			transition: 0.6s ease;
+	}
+
+    hr.hr-1 {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(255, 254, 254, 0.75), rgba(250, 250, 250, 0));
+    }
+
+    .footer_last {
+        padding: 30px;
+        display: flex;
+        gap: 40px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .footer_last h4 {
+        margin: 0;
+    }
+
+  
+    @media (max-width: 1024px) {
+        .linkss {
+            gap: 20px;
+        }
+
+        .footer_last {
+            gap: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .linkss {
+            gap: 10px;
+            flex-direction: column; 
+            align-items: center;
+        }
+
+        .footer_last {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .div {
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 20px;
+        }
+
+        .linkss {
+            padding: 10px;
+        }
+
+        .footer_last h4 {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<footer>
+    <div class="container">
+        <div class="linkss">
+            <div class="div"> &copy;2025 The Lighting Concepts
+               
+            </div>
+            <div class="div">Quick Links
+                <ul>
+					
+					<li onclick="window.location.href='testimonial.html'">Testimonials</li>
+                    <li onclick="window.location.href='why.html'">Why we?</li>
+                    <li onclick="window.location.href='who.html'">Who Are we?</li>
+                    <li onclick="window.location.href='what.html'">What we do?</li>
+                </ul>
+            </div>
+            
+ 			<div class="div">Follow us on
+                <ul>
+					<li onclick="window.location.href='https://x.com/i/flow/login?lang=en'">X</li>
+                    <li onclick="window.location.href='https://www.instagram.com/'">Instagram </li>
+					<li onclick="window.location.href='https://www.facebook.com/login/'">Facebook</li>
+                    
+                   
+                </ul>
+            </div>
+            <div class="div">Contact us
+                <ul>
+                    <li>Email: </li>
+                    <li>Phone: </li>
+					<li>WhatsApp: </li>
+                   
+                </ul>
+            </div>
+			<div class="div">Mails
+                <ul>
+                    <li>Saket@thelightingconcepts.com </li>
+                    <li>Chirag@thelightingconcepts.com</li>
+					<li>Mohit@thelightingconcepts.com</li>
+                 
+                </ul>
+            </div>
+           
+        </div>
+
+        <hr class="hr-1">
+        <div class="footer_last">
+            <h4>Designed and Developed By Soft Solution</h4>
+            <h4>Legal Advice</h4>
+            <h4>Privacy Policy</h4>
+            <h4>Cookie Policy</h4>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            const slider = $(".slider");
+            const slideGroups = $(".slide-group");
+            const totalSlides = slideGroups.length;
+            let currentSlide = 0;
+
+            const dotsContainer = $(".slider-dots");
+            for (let i = 0; i < totalSlides; i++) {
+                dotsContainer.append(`<div class="dot ${i === 0 ? "active" : ""}"></div>`);
+            }
+
+            $(".next-btn").click(() => navigate(1));
+            $(".prev-btn").click(() => navigate(-1));
+
+            $(".dot").click(function () {
+                const index = $(this).index();
+                goToSlide(index);
+            });
+
+            function navigate(direction) {
+                currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+                goToSlide(currentSlide);
+            }
+
+            function goToSlide(index) {
+                slider.css("transform", `translateX(-${index * 100}%)`);
+                $(".dot").removeClass("active").eq(index).addClass("active");
+                currentSlide = index;
+            }
+
+            setInterval(() => {
+                navigate(1);
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
